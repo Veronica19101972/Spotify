@@ -1,24 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
-        <a class="navbar-brand fw-bold" href="#page-top">Datos de Spotify</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="bi-list"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a class="nav-link me-lg-3" href="{% url 'home:index' %}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="#!">Quiénes somos</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="#!">Contactános</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="#!">Cuenta</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="#!">Artista</a></li>
+        <a class="navbar-brand" href="#!">Aplicación de Spotify</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home:index' %}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Quiénes somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Contactanos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Cuenta</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Artista</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Album</a></li>
             </ul>
-            <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
-                <span class="d-flex align-items-center">
-                    <i class="bi-chat-text-fill me-2"></i>
-                    <span class="small">Enviamos tus comentarios</span>
-                </span>
-            </button>
         </div>
     </div>
 </nav>
