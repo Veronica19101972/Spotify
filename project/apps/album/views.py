@@ -3,41 +3,33 @@ from django.shortcuts import render, redirect
 from django.template import context
 
 from . import models, forms
-
+from django.urls import reverse_lazy
 
 def index(request: HttpRequest) -> HttpResponse:
     return render(request, "album/index.html")
 
-def album_list(request):
-    albumes = models.Album.objects.all()
-    context = {"albumes": albumes}
-    return render(request, "album/album_list.html", context)
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-def album_create(request):
-    if request.method == "POST":
-        form = forms.albumForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("album:index")
-    else:
-        form = forms.albumForm()
-    return render(request, "album/album_create.html", {"form": form})
+class AlbumList(ListView):
+    model = models.Album
+    template_name = "album/album_list.html"
+    context_object_name = "albumes"
+    
+class AlbumCreate(CreateView):
+    model = models.Album
+    form_class = forms.AlbumForm
+    template_name = "album/album_create.html"
+    success_url = reverse_lazy("album:index")    
 
-def album_delete(request, id):
-    album = models.Album.objects.get(id=id)
-    if request.method == "POST":
-        album.delete()
-        return redirect("album:index")
-    return render(request, "album/album_delete.html", {"album": album})
-
-def album_update(request, id):
-    album = models.Album.objects.get(id=id)
-    if request.method == "POST":
-        form = forms.albumForm(request.POST, instance=album)
-        if form.is_valid():
-            form.save()
-            return redirect("album:index")
-    else:
-        form = forms.albumForm(instance=album)
-    return render(request, "album/album_update.html", {"form": form})
-
+class AlbumDelete(DeleteView):
+    model = models.Album
+    template_name = "album/album_delete.html"
+    success_url = reverse_lazy("album:index")
+    
+class AlbumUpdate(UpdateView):
+    model = models.Album
+    form_class = forms.AlbumForm
+    template_name = "album/album_update.html"
+    success_url = reverse_lazy("album:index")
+    
