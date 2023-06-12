@@ -3,40 +3,33 @@ from django.shortcuts import render, redirect
 from django.template import context
 
 from . import models, forms
+from django.urls import reverse_lazy
 
 def index(request: HttpRequest) -> HttpResponse:
     return render(request, "artista/index.html")
 
-def artista_list(request):
-    artistas = models.Artista.objects.all()
-    context = {"artistas": artistas}
-    return render(request, "artista/artista_list.html", context)
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+class ArtistaList(ListView):
+    model = models.Artista
+    template_name = "artista/artista_list.html"
+    context_object_name = "artistas"
     
-def artista_create(request):
-    if request.method == "POST":
-        form = forms.artistaForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("artista:index")
-    else:
-        form = forms.artistaForm()
-    return render(request, "artista/artista_create.html", {"form": form})
+class ArtistaCreate(CreateView):
+    model = models.Artista
+    form_class = forms.ArtistaForm
+    template_name = "artista/artista_create.html"
+    success_url = reverse_lazy("artista:index")    
 
-def artista_delete(request, id):
-    artista = models.Artista.objects.get(id=id)
-    if request.method == "POST":
-        artista.delete()
-        return redirect("artista:index")
-    return render(request, "artista/artista_delete.html", {"artista": artista})
-
-def artista_update(request, id):
-    artista = models.Artista.objects.get(id=id)
-    if request.method == "POST":
-        form = forms.artistaForm(request.POST, instance=artista)
-        if form.is_valid():
-            form.save()
-            return redirect("artista:index")
-    else:
-        form = forms.artistaForm(instance=artista)
-    return render(request, "artista/artista_update.html", {"form": form})
+class ArtistaDelete(DeleteView):
+    model = models.Artista
+    template_name = "artista/artista_delete.html"
+    success_url = reverse_lazy("artista:index")    
+    
+class ArtistaUpdate(UpdateView):
+    model = models.Artista
+    form_class = forms.ArtistaForm
+    template_name = "artista/artista_update.html"
+    success_url = reverse_lazy("artista:index")    
 

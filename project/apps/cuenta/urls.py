@@ -5,11 +5,10 @@ from . import views
 
 urlpatterns = [
      path("", views.index, name="index"),
-     path("cuenta_list/", views.cuenta_list, name="cuenta_list"),
-     path("cuenta_create/", views.cuenta_create, name="cuenta_create"),
-     path("cuenta_delete/<int:id>", views.cuenta_delete, name="cuenta_delete"),
-     path("cuenta_update/<int:id>", views.cuenta_update, name="cuenta_update"),
-
+     path("cuenta_list/", views.CuentaList.as_view(), name="cuenta_list"),
+     path("cuenta_create/", views.CuentaCreate.as_view(), name="cuenta_create"),
+     path("cuenta_delete/<int:pk>", views.CuentaDelete.as_view(), name="cuenta_delete"),
+     path("cuenta_update/<int:pk>", views.CuentaUpdate.as_view(), name="cuenta_update"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

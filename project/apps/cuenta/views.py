@@ -3,39 +3,32 @@ from django.shortcuts import render, redirect
 from django.template import context
 
 from . import models, forms
+from django.urls import reverse_lazy
 
 def index(request: HttpRequest) -> HttpResponse:
     return render(request, "cuenta/index.html")
 
-def cuenta_list(request):
-    cuentas = models.Cuenta.objects.all()
-    context = {"cuentas": cuentas}
-    return render(request, "cuenta/cuenta_list.html", context)
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+class CuentaList(ListView):
+    model = models.Cuenta
+    template_name = "cuenta/cuenta_list.html"
+    context_object_name = "cuentas"
     
-def cuenta_create(request):
-    if request.method == "POST":
-        form = forms.cuentaForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("cuenta:index")
-    else:
-        form = forms.cuentaForm()
-    return render(request, "cuenta/cuenta_create.html", {"form": form})
+class CuentaCreate(CreateView):
+    model = models.Cuenta
+    form_class = forms.cuentaForm
+    template_name = "cuenta/cuenta_create.html"
+    success_url = reverse_lazy("cuenta:index")    
 
-def cuenta_delete(request, id):
-    cuenta = models.Cuenta.objects.get(id=id)
-    if request.method == "POST":
-        cuenta.delete()
-        return redirect("cuenta:index")
-    return render(request, "cuenta/cuenta_delete.html", {"cuenta": cuenta})
-
-def cuenta_update(request, id):
-    cuenta = models.Cuenta.objects.get(id=id)
-    if request.method == "POST":
-        form = forms.cuentaForm(request.POST, instance=cuenta)
-        if form.is_valid():
-            form.save()
-            return redirect("cuenta:index")
-    else:
-        form = forms.cuentaForm(instance=cuenta)
-    return render(request, "cuenta/cuenta_update.html", {"form": form})
+class CuentaDelete(DeleteView):
+    model = models.Cuenta
+    template_name = "cuenta/cuenta_delete.html"
+    success_url = reverse_lazy("cuenta:index")    
+    
+class CuentaUpdate(UpdateView):
+    model = models.Cuenta
+    form_class = forms.cuentaForm
+    template_name = "cuenta/cuenta_update.html"
+    success_url = reverse_lazy("cuenta:index")
