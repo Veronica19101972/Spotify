@@ -56,6 +56,9 @@ INSTALLED_APPS = [
 # * Apps propias
 INSTALLED_APPS += [
     "home",
+    "cuenta",
+    "artista",
+    "album",
 ]
 
 MIDDLEWARE = [
