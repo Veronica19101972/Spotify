@@ -1,0 +1,15 @@
+{% extends 'album/index.html' %}
+
+
+{% block title %} Álbum {% endblock title %}
+
+{% block content_album %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
+    {% include 'album/index_back.html' %}
+
+{% endblock content_album %}

@@ -1,0 +1,19 @@
+{% extends 'album/index.html' %}
+
+
+{% block title %} Detalle de ÁLBUMES {% endblock title %}
+
+{% block content_album %}
+
+    <ul>
+        <li>
+            <p><strong>Nombre:</strong> {{ object.nombre }}</p>
+            <p><strong>Fecha de Lanzamiento:</strong> {{ object.fecha_de_lanzamiento }}</p>
+            <p><strong>estilo:</strong> {{ object.estilo }}</p>
+        </li>
+    </ul>
+
+    {% include 'album/index_back.html' %}
+
+
+{% endblock content_album %}

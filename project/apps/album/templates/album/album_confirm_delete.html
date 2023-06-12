@@ -1,0 +1,17 @@
+{% extends 'album/index.html' %}
+
+
+{% block title %} Eliminación de Álbumes {% endblock title %}
+
+{% block content_album %}
+
+    <p class="fs-5 fst-italic ">¿Confirmas eliminar "{{ object }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+    </form>
+
+    {% include 'producto/index_back.html' %}
+
+{% endblock content_album %}

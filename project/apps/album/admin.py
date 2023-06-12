@@ -3,6 +3,9 @@ from django.contrib import admin
 # Register your models here.
 from . import models
 
+admin.site.site_title = " Albumes "
+admin.site.site_header = " Aplicación de Spotify "
+
 #admin.site.register(models.Album)
 
 @admin.register(models.Album)

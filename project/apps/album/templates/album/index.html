@@ -1,12 +1,19 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    <h1>Álbum</h1>
-    {% block content_album %}
-        <h3> ÁLBUMES </h3>
-            <a href="{% url 'album:album_create' %}"> Crear </a> <br>
-            <a href="{% url 'album:album_list' %}"> Listar </a> <br>
-    {% endblock content_album %}
-    
+    <h1 class="shadow-lg text-center">App Álbum</h1>
+    <div class="container mt-lg-3">
+
+        <h3 class="pb-lg-3">
+            {% block title %}
+                ÁLBUMES
+            {% endblock title %}
+        </h3>
+        
+        {% block content_album %}
+                <a href="{% url 'album:album_create' %}" class="btn btn-primary"> Crear </a> <br>
+                <a href="{% url 'album:album_list' %}"class="btn btn-primary"> Listar </a> <br>
+        {% endblock content_album %}
+    </div>
 
 {% endblock content %}

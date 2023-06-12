@@ -1,18 +1,30 @@
 {% extends 'album/index.html' %}
 
+{% block title %} Listado de Álbumes {% endblock title %}
+
 {% block content_album %}
-    <h2> Lista de Álbumes </h2>
+
+    {% if object_list %}
+        <div class="py-lg-4">
+            <form action= "{% url 'album:album_list' %}" method="get">
+                <input name="consulta" type="text"  placeholder="Buscar ...">
+            </form>
+        </div>
+
+        {% for album in object_list %}
+            <ul>
+                <li>{{ album.nombre }}
+                    <a href="{% url 'album:album_detail' album.id %}" class="btn btn-secondary">Ver detalle</a>
+                    <a href="{% url 'album:album_update' album.id %}" class="btn btn-primary">Actualizar</a>
+                    <a href="{% url 'album:album_delete' album.id %}" class="btn btn-danger">Eliminar</a>
+                </li>
+            </ul>
+        {% endfor %}
+    {% else %}
+            <p class="fs-4 fst-italic">No hay registro ingresados</p>
+    {% endif %}
     
-    {% for album in albumes %}
-    <ul>
-        <li>{{ album }}
-            <a href="{% url 'album:album_update' album.id %}" class="btn btn-primary">Actualizar</a>
-            <a href="{% url 'album:album_delete' album.id %}" class="btn btn-danger">Eliminar</a>
-        </li>
-    </ul>
-    {% endfor %}
-    
-    <a href="{% url 'album:index' %}">Volver a índice de Álbumes</a>    
+    {% include 'album/index_back.html' %}
 
 {% endblock content_album %}
 
