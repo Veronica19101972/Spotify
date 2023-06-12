@@ -5,7 +5,10 @@
     
     {% for artista in artistas %}
     <ul>
-        <li>{{ artista }}</li>
+        <li>{{ artista }}
+            <a href="{% url 'artista:artista_delete' artista.id %}" class="btn btn-danger">Eliminar</a>
+        </li>
+
     </ul>
     {% endfor %}
     <a href="{% url 'artista:index' %}">Volver a índice de Artista</a>

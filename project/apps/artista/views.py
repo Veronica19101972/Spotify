@@ -21,3 +21,10 @@ def artista_create(request):
     else:
         form = forms.artistaForm()
     return render(request, "artista/artista_create.html", {"form": form})
+
+def artista_delete(request, id):
+    artista = models.Artista.objects.get(id=id)
+    if request.method == "POST":
+        artista.delete()
+        return redirect("artista:index")
+    return render(request, "artista/artista_delete.html", {"artista": artista})
