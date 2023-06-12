@@ -23,5 +23,12 @@ def album_create(request):
         form = forms.albumForm()
     return render(request, "album/album_create.html", {"form": form})
 
+def album_delete(request, id):
+    album = models.Album.objects.get(id=id)
+    if request.method == "POST":
+        album.delete()
+        return redirect("album:index")
+    return render(request, "album/album_delete.html", {"album": album})
 
+    
         
