@@ -21,3 +21,10 @@ def cuenta_create(request):
     else:
         form = forms.cuentaForm()
     return render(request, "cuenta/cuenta_create.html", {"form": form})
+
+def cuenta_delete(request, id):
+    cuenta = models.Cuenta.objects.get(id=id)
+    if request.method == "POST":
+        cuenta.delete()
+        return redirect("cuenta:index")
+    return render(request, "cuenta/cuenta_delete.html", {"cuenta": cuenta})
