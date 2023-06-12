@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 def index(request: HttpRequest) -> HttpResponse:
     return render(request, "cuenta/index.html")
 
+    
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
