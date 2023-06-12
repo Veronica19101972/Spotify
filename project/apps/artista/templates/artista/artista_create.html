@@ -1,0 +1,13 @@
+{% extends 'artista/index.html' %}
+
+{% block content_artista %}
+    <h2> Crear Artista </h2>
+    <form method="POST">    
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type = "submit">Crear</button>
+
+    </form>
+    <a href="{% url 'artista:index' %}">Volver a índice de Artista</a>
+
+{% endblock content_artista %}

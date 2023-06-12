@@ -4,8 +4,8 @@
     <h1>Álbum</h1>
     {% block content_album %}
         <h3> ÁLBUMES </h3>
+            <a href="{% url 'album:album_create' %}"> Crear </a> <br>
             <a href="{% url 'album:album_list' %}"> Listar </a> <br>
-            
     {% endblock content_album %}
     
 

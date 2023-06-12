@@ -5,6 +5,7 @@
 
     {% block content_artista %}
         <h3> ARTISTAS </h3>
+            <a href="{% url 'artista:artista_create' %}"> Crear </a> <br>
             <a href="{% url 'artista:artista_list' %}"> Listar </a> <br>
     {% endblock content_artista %}
 

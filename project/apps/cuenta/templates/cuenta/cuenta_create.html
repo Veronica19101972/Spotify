@@ -1,0 +1,13 @@
+{% extends 'cuenta/index.html' %}
+
+{% block content_cuenta %}
+    <h2> Crear Cuenta </h2>
+    <form method="POST">    
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type = "submit">Crear</button>
+
+    </form>
+    <a href="{% url 'cuenta:index' %}">Volver a índice de Cuenta</a>
+
+{% endblock content_cuenta %}

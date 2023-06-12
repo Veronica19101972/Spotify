@@ -1,8 +1,8 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import context
 
-from . import models
+from . import models, forms
 
 def index(request: HttpRequest) -> HttpResponse:
     return render(request, "artista/index.html")
@@ -12,3 +12,12 @@ def artista_list(request):
     context = {"artistas": artistas}
     return render(request, "artista/artista_list.html", context)
     
+def artista_create(request):
+    if request.method == "POST":
+        form = forms.artistaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("artista:index")
+    else:
+        form = forms.artistaForm()
+    return render(request, "artista/artista_create.html", {"form": form})
