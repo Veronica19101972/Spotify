@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
      path("", views.index, name="index"),
+     path("artista_list/", views.artista_list, name="artista_list"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

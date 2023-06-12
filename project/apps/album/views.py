@@ -8,7 +8,6 @@ def index(request: HttpRequest) -> HttpResponse:
 
 
 def album_list(request):
-    album = models.Album.objects.all()
-    context = {"album": album}
+    albumes = models.Album.objects.all()
+    context = {"albumes": albumes}
     return render(request, "album/album_list.html", context)
-    

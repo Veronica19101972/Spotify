@@ -1,1 +1,12 @@
 {% extends 'cuenta/index.html' %}
+
+{% block content_cuenta %}
+    <h2> Lista de Cuentas </h2>
+    
+    {% for cuenta in cuentas %}
+    <ul>
+        <li>{{ cuenta }}</li>
+    </ul>
+    {% endfor %}
+
+{% endblock content_cuenta %}

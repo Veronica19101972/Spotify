@@ -3,6 +3,12 @@
 {% block content_album %}
     <h2> Lista de Álbumes </h2>
     
+    {% for album in albumes %}
+        <ul>
+            <li>{{ album }}</li>
+        </ul>
+    {% endfor %}
+
 {% endblock content_album %}
     
 

@@ -1,1 +1,12 @@
 {% extends 'artista/index.html' %}
+
+{% block content_artista %}
+    <h2> Lista de Artistas </h2>
+    
+    {% for artista in artistas %}
+    <ul>
+        <li>{{ artista }}</li>
+    </ul>
+    {% endfor %}
+
+{% endblock content_artista %}
