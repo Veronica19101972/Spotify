@@ -13,8 +13,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 class AlbumList(ListView):
     model = models.Album
-    template_name = "album/album_list.html"
-    context_object_name = "albumes"
     def get_queryset(self):
         if self.request.GET.get("consulta"):
             query = self.request.GET.get("consulta")
@@ -26,18 +24,15 @@ class AlbumList(ListView):
 class AlbumCreate(CreateView):
     model = models.Album
     form_class = forms.AlbumForm
-    #template_name = "album/album_create.html"
     success_url = reverse_lazy("album:index")    
 
 class AlbumDelete(DeleteView):
     model = models.Album
-    #template_name = "album/album_delete.html"
     success_url = reverse_lazy("album:album_list")
     
 class AlbumUpdate(UpdateView):
     model = models.Album
     form_class = forms.AlbumForm
-    #template_name = "album/album_update.html"
     success_url = reverse_lazy("album:album_list")
     
 class AlbumDetail(DetailView):
