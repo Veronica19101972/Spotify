@@ -28,3 +28,14 @@ def cuenta_delete(request, id):
         cuenta.delete()
         return redirect("cuenta:index")
     return render(request, "cuenta/cuenta_delete.html", {"cuenta": cuenta})
+
+def cuenta_update(request, id):
+    cuenta = models.Cuenta.objects.get(id=id)
+    if request.method == "POST":
+        form = forms.cuentaForm(request.POST, instance=cuenta)
+        if form.is_valid():
+            form.save()
+            return redirect("cuenta:index")
+    else:
+        form = forms.cuentaForm(instance=cuenta)
+    return render(request, "cuenta/cuenta_update.html", {"form": form})

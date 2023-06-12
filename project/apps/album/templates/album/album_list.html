@@ -1,3 +1,4 @@
+
 {% extends 'album/index.html' %}
 
 {% block content_album %}
@@ -6,6 +7,7 @@
     {% for album in albumes %}
     <ul>
         <li>{{ album }}
+            <a href="{% url 'album:album_update' album.id %}" class="btn btn-primary">Actualizar</a>
             <a href="{% url 'album:album_delete' album.id %}" class="btn btn-danger">Eliminar</a>
         </li>
     </ul>

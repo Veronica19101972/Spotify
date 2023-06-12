@@ -1,0 +1,13 @@
+{% extends 'album/index.html' %}
+
+{% block content_album %}
+    <h2> Actualizar Álbumes </h2>
+    <form method="POST">    
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type = "submit">Guardar los cambios</button>
+
+    </form>
+    <a href="{% url 'album:index' %}">Volver a índice de Álbum</a>
+
+{% endblock content_album %}

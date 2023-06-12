@@ -30,5 +30,14 @@ def album_delete(request, id):
         return redirect("album:index")
     return render(request, "album/album_delete.html", {"album": album})
 
-    
-        
+def album_update(request, id):
+    album = models.Album.objects.get(id=id)
+    if request.method == "POST":
+        form = forms.albumForm(request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect("album:index")
+    else:
+        form = forms.albumForm(instance=album)
+    return render(request, "album/album_update.html", {"form": form})
+

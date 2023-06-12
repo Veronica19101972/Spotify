@@ -6,6 +6,7 @@
     {% for cuenta in cuentas %}
     <ul>
         <li>{{ cuenta }}
+            <a href="{% url 'cuenta:cuenta_update' cuenta.id %}" class="btn btn-primary">Actualizar</a>
             <a href="{% url 'cuenta:cuenta_delete' cuenta.id %}" class="btn btn-danger">Eliminar</a>
         </li>
     </ul>

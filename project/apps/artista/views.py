@@ -28,3 +28,15 @@ def artista_delete(request, id):
         artista.delete()
         return redirect("artista:index")
     return render(request, "artista/artista_delete.html", {"artista": artista})
+
+def artista_update(request, id):
+    artista = models.Artista.objects.get(id=id)
+    if request.method == "POST":
+        form = forms.artistaForm(request.POST, instance=artista)
+        if form.is_valid():
+            form.save()
+            return redirect("artista:index")
+    else:
+        form = forms.artistaForm(instance=artista)
+    return render(request, "artista/artista_update.html", {"form": form})
+
