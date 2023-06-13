@@ -4,11 +4,11 @@
     <h1 class="shadow-lg text-center">Aplicación Artista</h1>
     <div class="container mt-lg-3">
 
-        <h3 class="pb-lg-3">
-            {% block title %}
-                ARTISTAS
-            {% endblock title %}
-        </h3>
+            <h3 class="pb-lg-3">
+                {% block title %}
+                    ARTISTAS
+                {% endblock title %}
+            </h3>
    
         {% block content_artista %}
                 <a href="{% url 'artista:artista_create' %}" class="btn btn-primary"> Crear </a>
