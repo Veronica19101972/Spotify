@@ -10,10 +10,9 @@
             {% endblock title %}
         </h3>
         
-        {% block content_album %}
-                <a href="{% url 'album:album_create' %}" class="btn btn-primary"> Crear </a>
-                <a href="{% url 'album:album_list' %}" class="btn btn-primary"> Listar </a><br>
-        {% endblock content_album %}
-    </div>
+    {% block content_album %}
+            <a href="{% url 'album:album_create' %}" class="btn btn-primary"> Crear </a>
+            <a href="{% url 'album:album_list' %}" class="btn btn-primary"> Listar </a><br>
+    {% endblock content_album %}
     <a href="{% url 'home:index' %}" class="btn btn-info">Volver al MENÚ PRINCIPAL</a><br>
 {% endblock content %}
