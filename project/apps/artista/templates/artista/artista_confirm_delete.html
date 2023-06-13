@@ -1,9 +1,9 @@
-{% extends 'album/index.html' %}
+{% extends 'artista/index.html' %}
 
 
-{% block title %} Eliminación de Álbumes {% endblock title %}
+{% block title %} Eliminación de ARTISTA {% endblock title %}
 
-{% block content_album %}
+{% block content_artista %}
 
     <p class="fs-5 fst-italic ">¿Confirmas eliminar "{{ object }}"?</p>
 
@@ -12,6 +12,6 @@
         <button type="submit" class="btn btn-danger">Confirmar</button>
     </form>
 
-    {% include 'album/index_back.html' %}
+    {% include 'artista/index_back.html' %}
 
-{% endblock content_album %}
+{% endblock content_artista %}

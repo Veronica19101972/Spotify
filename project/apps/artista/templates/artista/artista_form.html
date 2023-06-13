@@ -1,0 +1,15 @@
+{% extends 'artista/index.html' %}
+
+
+{% block title %} Artista {% endblock title %}
+
+{% block content_artista %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
+    {% include 'artista/index_back.html' %}
+
+{% endblock content_artista %}

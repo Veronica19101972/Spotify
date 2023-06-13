@@ -1,11 +1,19 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    <h1>Artista</h1>
-    {% block content_artista %}
-        <h3> ARTISTAS </h3>
-            <a href="{% url 'artista:artista_create' %}"> Crear </a> <br>
-            <a href="{% url 'artista:artista_list' %}"> Listar </a> <br>
-    {% endblock content_artista %}
+    <h1 class="shadow-lg text-center">Aplicación Artista</h1>
+    <div class="container mt-lg-3">
 
+        <h3 class="pb-lg-3">
+            {% block title %}
+                ARTISTAS
+            {% endblock title %}
+        </h3>
+   
+        {% block content_artista %}
+                <a href="{% url 'artista:artista_create' %}" class="btn btn-primary"> Crear </a>
+                <a href="{% url 'artista:artista_list' %}" class="btn btn-primary"> Listar </a><br>
+        {% endblock content_artista %}
+    </div>
+    <a href="{% url 'home:index' %}" class="btn btn-info">Volver al MENÚ PRINCIPAL</a><br>
 {% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'artista/index.html' %}
+
+
+{% block title %} Detalle de ARTISTA {% endblock title %}
+
+{% block content_artista %}
+
+    <ul>
+        <li>
+            <p><strong>Nombre:</strong> {{ object.nombre }}</p>
+            <p><strong>Apellido:</strong> {{ object.apellido }}</p>
+            <p><strong>Nacionalidad:</strong> {{ object.nacionalidad }}</p>
+        </li>
+    </ul>
+
+    {% include 'artista/index_back.html' %}
+
+
+{% endblock content_artista %}
