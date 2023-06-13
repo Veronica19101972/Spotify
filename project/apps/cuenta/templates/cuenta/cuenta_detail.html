@@ -1,0 +1,23 @@
+{% extends 'cuenta/index.html' %}
+
+
+{% block title %} Detalle de CUENTA {% endblock title %}
+
+{% block content_cuenta %}
+
+    <ul>
+        <li>
+            <p><strong>Nombre:</strong> {{ object.nombre }}</p>
+            <p><strong>Apellido:</strong> {{ object.apellido }}</p>
+            <p><strong>DNI:</strong> {{ object.dni }}</p>
+            <p><strong>Nacionalidad:</strong> {{ object.nacionalidad }}</p>
+            <p><strong>Fecha de Nacimiento:</strong> {{ object.fecha_de_nacimiento }}</p>
+            <p><strong>Email:</strong> {{ object.email }}</p>
+            <p><strong>Fecha de Alta:</strong> {{ object.fecha_de_alta }}</p>
+            <p><strong>Domicilio:</strong> {{ object.domicilio }}</p>
+        </li>
+    </ul>
+
+    {% include 'cuenta/index_back.html' %}
+
+{% endblock content_cuenta %}

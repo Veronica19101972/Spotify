@@ -1,12 +1,19 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    <h1>Cuenta</h1>
+    <h1 class="shadow-lg text-center">Aplicación Cuenta</h1>
+    <div class="container mt-lg-3">
+
+        <h3 class="pb-lg-3">
+            {% block title %}
+                CUENTAS
+            {% endblock title %}
+        </h3>
+
 
     {% block content_cuenta %}
-        <h3> CUENTAS </h3>
-            <a href="{% url 'cuenta:cuenta_create' %}"> Crear </a> <br>
-            <a href="{% url 'cuenta:cuenta_list' %}"> Listar </a> <br>
+            <a href="{% url 'cuenta:cuenta_create' %}" class="btn btn-primary"> Crear </a>
+            <a href="{% url 'cuenta:cuenta_list' %}" class="btn btn-primary"> Listar </a><br>
     {% endblock content_cuenta %}
-
+    <a href="{% url 'home:index' %}" class="btn btn-info">Volver al MENÚ PRINCIPAL</a><br>
 {% endblock content %}

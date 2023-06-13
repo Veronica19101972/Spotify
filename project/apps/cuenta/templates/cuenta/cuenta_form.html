@@ -1,0 +1,15 @@
+{% extends 'cuenta/index.html' %}
+
+
+{% block title %} Cuenta {% endblock title %}
+
+{% block content_cuenta %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
+    {% include 'cuenta/index_back.html' %}
+
+{% endblock content_cuenta %}
