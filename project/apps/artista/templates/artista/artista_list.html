@@ -10,7 +10,7 @@
 
     {% for artista in object_list %}
         <ul>
-            <li>{{ artista.apellido }}
+            <li>{{ artista.apellido }} {{ artista.nombre}}
                 <a href="{% url 'artista:artista_detail' artista.id %}" class="btn btn-secondary">Ver Detalle</a>
                 <a href="{% url 'artista:artista_update' artista.id %}" class="btn btn-primary">Actualizar</a>
                 <a href="{% url 'artista:artista_delete' artista.id %}" class="btn btn-danger">Eliminar</a>

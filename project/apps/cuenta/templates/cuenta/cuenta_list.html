@@ -10,7 +10,7 @@
 
     {% for cuenta in object_list %}
         <ul>
-            <li>{{ cuenta.nombre }}
+            <li>{{ cuenta.nombre}} {{cuenta.apellido}} DNI: {{cuenta.dni}}
                 <a href="{% url 'cuenta:cuenta_detail' cuenta.id %}" class="btn btn-secondary">Ver Detalle</a>
                 <a href="{% url 'cuenta:cuenta_update' cuenta.id %}" class="btn btn-primary">Actualizar</a>
                 <a href="{% url 'cuenta:cuenta_delete' cuenta.id %}" class="btn btn-danger">Eliminar</a>
