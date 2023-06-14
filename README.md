@@ -42,3 +42,5 @@ Se ha generado cuatro tipos de niveles de usuario que son los siguientes:
    2 - El registrado y que no pertenece al staff. (ve la pagina y le permite solamente ver detalles)
    3 - El registrado y que si pertenece al staff. (ve la pagina y le permite CREAR, VER DETALLE, ACTUALIZAR Y ELIMINAR)
    4 - Y el ADMIN. (ve todo y le permite registrar un Usuario).
+
+El video de presentacion lo subo con el proyecto.
