@@ -35,7 +35,6 @@ Aquí están los pasos generales para crear el proyecto:
    - Abre una terminal, navega hasta la carpeta del proyecto y ejecuta el comando `python manage.py runserver`.
    - Accede al servidor de desarrollo en tu navegador para probar y verificar las funcionalidades.
 
-
 Se ha creado las aplicaciones HOME, ALBUM, ARTISTA, CUENTA en estas tres ultimas se generaron las clases CREAR, LEER, ACTUALIZAR Y BORRAR es decir CRUD.
 
 Se ha generado cuatro tipos de niveles de usuario que son los siguientes:
