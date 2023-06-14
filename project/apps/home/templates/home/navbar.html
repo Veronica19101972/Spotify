@@ -1,7 +1,7 @@
         <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
-        <a class="navbar-brand" href="#!">Aplicación de Spotify</a>
+        <a class="navbar-brand" href="{% url 'home:index' %}">Aplicación de Spotify</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -12,10 +12,10 @@
                     <li class="nav-item"><a class="nav-link {% if request.path == "/album/" %}active{% endif %}" href="{% url 'album:index' %}">Álbumes</a></li>
                     
                     <li class="nav-item"><a class="nav-link text-bg-light" href="#!">{{ user.username }}</a></li>
-                    <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:logout' %}">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link text-success" href="{% url 'home:logout' %}">Logout</a></li>
                 {% else %}
                     <li class="nav-item"><a class="nav-link {% if request.path == "/about/" %}active{% endif %}" href="{% url 'home:about' %}">¿Quiénes somos?</a></li>
-                    <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link text-success" href="{% url 'home:login' %}">Login</a></li>
                 {% endif %}
             </ul>
         </div>
