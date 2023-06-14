@@ -15,8 +15,10 @@
             <ul>
                 <li>{{ album.nombre }} Estilo: {{ album.estilo}}
                     <a href="{% url 'album:album_detail' album.id %}" class="btn btn-secondary">Ver Detalle</a>
-                    <a href="{% url 'album:album_update' album.id %}" class="btn btn-primary">Actualizar</a>
-                    <a href="{% url 'album:album_delete' album.id %}" class="btn btn-danger">Eliminar</a>
+                    {% if user.is_staff %}
+                        <a href="{% url 'album:album_update' album.id %}" class="btn btn-primary">Actualizar</a>
+                        <a href="{% url 'album:album_delete' album.id %}" class="btn btn-danger">Eliminar</a>
+                    {% endif %}
                 </li>
             </ul>
         {% endfor %}
