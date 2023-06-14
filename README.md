@@ -1,8 +1,8 @@
-# Tercera_Entrega
+# TRABAJO FINAL DE PYTHON
 
-Tercera Entrega PYTHON
+En la Tercera Entrega PYTHON
 
-Una guía general para desarrollar un proyecto web Django con patrón MVT que incluya herencia de HTML, clases en el modelo y formularios para insertar datos.
+Esto es un proyecto web Django con patrón MVT que incluya herencia de HTML, clases en el modelo y formularios para insertar datos.
 
 Aquí están los pasos generales para crear el proyecto:
 
@@ -35,4 +35,11 @@ Aquí están los pasos generales para crear el proyecto:
    - Abre una terminal, navega hasta la carpeta del proyecto y ejecuta el comando `python manage.py runserver`.
    - Accede al servidor de desarrollo en tu navegador para probar y verificar las funcionalidades.
 
-Recuerda que esta es una guía general y necesitarás personalizarla según tus necesidades específicas.
+
+Se ha creado las aplicaciones HOME, ALBUM, ARTISTA, CUENTA en estas tres ultimas se generaron las clases CREAR, LEER, ACTUALIZAR Y BORRAR es decir CRUD.
+
+Se ha generado cuatro tipos de niveles de usuario que son los siguientes:
+   1 - El usuario no registrado.
+   2 - El registrado y que no pertenece al staff.
+   3 - El registrado y que si pertenece al staff.
+   4 - Y el ADMIN
