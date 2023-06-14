@@ -6,8 +6,12 @@
     {% endif %}
 
     {% if user.is_staff %}
-        <p><a href="{% url 'admin:index' %}">Administración</a></p>
-        <p><a href="{% url 'home:register' %}">Registrar nuevo Usuario</a></p>
+        {% if user.username == 'admin' %}
+            <p>
+                <a class="btn btn-success" href="{% url 'admin:index' %}">Administración</a>
+                <a class="btn btn-success" href="{% url 'home:register' %}">Registrar nuevo Usuario</a>
+            </p>
+        {% endif %}
     {% endif %}
 
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
