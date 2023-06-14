@@ -38,7 +38,7 @@ Aquí están los pasos generales para crear el proyecto:
 Se ha creado las aplicaciones HOME, ALBUM, ARTISTA, CUENTA en estas tres ultimas se generaron las clases CREAR, LEER, ACTUALIZAR Y BORRAR es decir CRUD.
 
 Se ha generado cuatro tipos de niveles de usuario que son los siguientes:
-   1 - El usuario no registrado.
-   2 - El registrado y que no pertenece al staff.
-   3 - El registrado y que si pertenece al staff.
-   4 - Y el ADMIN
+   1 - El usuario no registrado. (ve solamente la pagina y quiénes somos)
+   2 - El registrado y que no pertenece al staff. (ve la pagina y le permite solamente ver detalles)
+   3 - El registrado y que si pertenece al staff. (ve la pagina y le permite CREAR, VER DETALLE, ACTUALIZAR Y ELIMINAR)
+   4 - Y el ADMIN. (ve todo y le permite registrar un Usuario).
