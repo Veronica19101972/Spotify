@@ -1,6 +1,7 @@
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import models, forms
 from django.urls import reverse_lazy
@@ -21,7 +22,7 @@ class ArtistaList(ListView):
             object_list = models.Artista.objects.all()
         return object_list
     
-class ArtistaCreate(CreateView):
+class ArtistaCreate(LoginRequiredMixin, CreateView):
     model = models.Artista
     form_class = forms.ArtistaForm
     success_url = reverse_lazy("artista:index")    

@@ -34,7 +34,7 @@ sys.path.append(str(APLICACIONES))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-xo-yqjg8$x*&1fdg@()e8_w6*q79$9^%-75s)1m^&3-tcj!j&3'
+# SECRET_KEY = 'django-insecure-xo-yqjg8$x*&1fdg@()e8_w6*q79$9^%-75s)1m^&3-tcj!j&3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,7 +76,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "America/Argentina/San Juan"
 
 USE_I18N = True
 
@@ -137,7 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 
 
 # Default primary key field type
@@ -147,5 +147,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # login
 
-LOGIN_URL = "home:index"
+LOGIN_URL = "home:login"
 

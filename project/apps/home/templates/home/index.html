@@ -1,16 +1,17 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-    {% if user.is_authenticated  %}
-        <p>{{ mensaje }}</p>
+    {% if user.is_authenticated %}
+        <h3>Bienvenido {{ user.username }}</h3>
     {% endif %}
 
-    {% if user.if_staff %}
+    {% if user.is_staff %}
         <p><a href="{% url 'admin:index' %}">Administración</a></p>
+        <p><a href="{% url 'home:register' %}">Registrar nuevo Usuario</a></p>
     {% endif %}
 
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
-        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="static\home\img\1366_2000.jpeg" alt="..." /></div>
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="\static\home\img\1366_2000.jpeg" alt="..." /></div>
         <div class="col-lg-5">
             <h1 class="font-weight-light">Los datos de Spotify</h1>
             <p>Esta es una aplicacion para carga de datos en Spotify como trabajo final de PYTHON en CODERHOUSE</p>

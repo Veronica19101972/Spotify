@@ -1,6 +1,7 @@
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import models, forms
 from django.urls import reverse_lazy
@@ -21,7 +22,7 @@ class AlbumList(ListView):
             object_list = models.Album.objects.all()
         return object_list
        
-class AlbumCreate(CreateView):
+class AlbumCreate(LoginRequiredMixin,CreateView):
     model = models.Album
     form_class = forms.AlbumForm
     success_url = reverse_lazy("album:index")    

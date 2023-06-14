@@ -1,6 +1,7 @@
 
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import models, forms
 from django.urls import reverse_lazy
@@ -22,7 +23,7 @@ class CuentaList(ListView):
             object_list = models.Cuenta.objects.all()
         return object_list
     
-class CuentaCreate(CreateView):
+class CuentaCreate(LoginRequiredMixin, CreateView):
     model = models.Cuenta
     form_class = forms.cuentaForm
     success_url = reverse_lazy("cuenta:index")    
